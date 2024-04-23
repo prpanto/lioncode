@@ -32,16 +32,19 @@ class Topic extends Model
 
     public function events(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'event_topic_lesson_instructor', 'event_id', 'topic_id');
+        return $this->belongsToMany(User::class, 'event_topic_lesson_instructor')
+            ->using(EventTopicLessonInstructor::class);
     }
 
     public function instructors(): BelongsToMany
     {
-        return $this->belongsToMany(Instructor::class, 'event_topic_lesson_instructor', 'instructor_id', 'topic_id');
+        return $this->belongsToMany(Instructor::class, 'event_topic_lesson_instructor')
+            ->using(EventTopicLessonInstructor::class);
     }
 
     public function lessons(): BelongsToMany
     {
-        return $this->belongsToMany(Lesson::class, 'event_topic_lesson_instructor', 'lesson_id', 'topic_id');
+        return $this->belongsToMany(Lesson::class, 'event_topic_lesson_instructor')
+            ->using(EventTopicLessonInstructor::class);
     }
 }

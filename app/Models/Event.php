@@ -46,21 +46,25 @@ class Event extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'event_user', 'event_id', 'user_id');
+        return $this->belongsToMany(User::class, 'event_user')
+            ->using(EventUser::class);
     }
 
     public function instructors(): BelongsToMany
     {
-        return $this->belongsToMany(Instructor::class, 'event_topic_lesson_instructor', 'instructor_id', 'event_id');
+        return $this->belongsToMany(Instructor::class, 'event_topic_lesson_instructor')
+            ->using(EventTopicLessonInstructor::class);
     }
 
     public function lessons(): BelongsToMany
     {
-        return $this->belongsToMany(Lesson::class, 'event_topic_lesson_instructor', 'lesson_id', 'event_id');
+        return $this->belongsToMany(Lesson::class, 'event_topic_lesson_instructor')
+            ->using(EventTopicLessonInstructor::class);
     }
 
     public function topics(): BelongsToMany
     {
-        return $this->belongsToMany(Topic::class, 'event_topic_lesson_instructor', 'topic_id', 'event_id');
+        return $this->belongsToMany(Topic::class, 'event_topic_lesson_instructor')
+            ->using(EventTopicLessonInstructor::class);
     }
 }
