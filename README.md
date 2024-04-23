@@ -43,6 +43,11 @@ Inertia.js is excellent project because bridge Vue.js and Laravel and create a S
 6. Get the data from the topics from `example.test/api/topics`
 
 `*example.test is your development domain name`
+```
+*Login user
+email: test@example.com
+password: password
+```
 
 #### SPA
 
