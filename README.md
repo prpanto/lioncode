@@ -6,6 +6,15 @@ This is a project to sharpen my skills in Laravel. It was a great experience and
 
 Inertia.js is excellent project because bridge Vue.js and Laravel and create a SPA application. With Inertia you avoid all the headache from Vue Spa in Laravel. The experience with Inertia is in another level because make the work more easily for a developer.
 
+#### How can improve this project.
+
+1. Update to laravel 11.
+2. Use FormRequest on the validation request.
+3. Change the frontend UI on the project.
+4. Dark mode
+5. Add factories and seeders to the event, instructor, lesson and topic table.
+6. Add the funtionality to the user to add, edit and delete data from the tables on the spa and api.
+
 ## Build With
 
 1. Laravel
