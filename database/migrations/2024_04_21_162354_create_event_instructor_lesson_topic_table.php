@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('event_topic_lesson_instructor', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->comment('unsigned');
-            $table->integer('topic_id')->nullable()->comment('unsigned');
-            $table->integer('lesson_id')->nullable()->comment('unsigned');
-            $table->integer('instructor_id')->nullable()->comment('unsigned');
+        Schema::create('event_instructor_lesson_topic', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignId('event_id')->constrained();
+            $table->foreignId('instructor_id')->constrained();
+            $table->foreignId('lesson_id')->constrained();
+            $table->foreignId('topic_id')->constrained();
+
             $table->string('date', 500)->nullable();
             $table->string('time_starts', 500)->nullable();
             $table->string('time_ends', 500)->nullable();
@@ -28,11 +30,6 @@ return new class extends Migration
             $table->integer('priority')->nullable();
             $table->boolean('automate_mail')->nullable()->default(false);
             $table->boolean('send_automate_mail')->nullable()->default(false);
-
-            $table->foreignId('event_id')->constrained();
-            $table->foreignId('topic_id')->constrained();
-            $table->foreignId('lesson_id')->constrained();
-            $table->foreignId('instructor_id')->constrained();
         });
     }
 
@@ -43,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_topic_lesson_instructor');
+        Schema::dropIfExists('event_instructor_lesson_topic');
     }
 };

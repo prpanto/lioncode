@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('lessons', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->boolean('status')->nullable();
             $table->string('title')->nullable();
             $table->mediumText('htmlTitle')->nullable();
@@ -26,11 +26,8 @@ return new class extends Migration
             $table->string('vimeo_duration')->nullable();
             $table->longText('links')->nullable();
             $table->boolean('bold')->default(false);
-            $table->integer('author_id')->nullable();
-            $table->integer('creator_id')->nullable();
             $table->string('published_at', 500)->nullable();
-            $table->string('created_at', 500)->nullable();
-            $table->string('updated_at', 500)->nullable();
+            $table->timestamps();
         });
     }
 

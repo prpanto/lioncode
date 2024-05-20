@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('instructors', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
             $table->bigInteger('priority')->nullable();
             $table->boolean('status')->nullable();
             $table->bigInteger('comment_status')->nullable();
@@ -27,10 +27,7 @@ return new class extends Migration
             $table->text('body')->nullable();
             $table->string('ext_url')->nullable();
             $table->longText('social_media')->nullable();
-            $table->integer('author_id')->nullable();
-            $table->integer('creator_id')->nullable();
-            $table->string('created_at', 500)->nullable();
-            $table->string('updated_at', 500)->nullable();
+            $table->timestamps();
         });
     }
 

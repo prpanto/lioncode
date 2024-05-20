@@ -29,16 +29,6 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        if ($request->user()->tokens ?? null) {
-            $userToken = $request->user()->tokens[count($request->user()->tokens) - 1];
-            $tokenID = (string) $userToken->id;
-            $token = (string) $userToken->token;
-
-            // $user = $request->user()
-            //     ? array_merge($request->user()->toArray(), ['token' => "{$tokenID}|{$token}"])
-            //     : null;
-        }
-
         return [
             ...parent::share($request),
             'auth' => [

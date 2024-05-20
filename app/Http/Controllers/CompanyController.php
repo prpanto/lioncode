@@ -11,6 +11,6 @@ class CompanyController extends Controller
     {
         $companies = Company::all();
 
-        return Inertia::render('Companies', $companies);
+        return Inertia::render('Companies', ['companies' => $companies]);
     }
 }

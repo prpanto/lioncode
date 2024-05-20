@@ -14,14 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->id();
+            
+            $table->foreignId('user_id')->constrained();
+            
             $table->bigInteger('priority')->nullable();
             $table->boolean('status')->nullable();
             $table->boolean('published');
             $table->dateTime('release_date_files')->nullable();
             $table->string('expiration')->nullable();
             $table->string('title')->nullable();
-            $table->mediumText('htmlTitle')->nullable();
+            $table->text('htmlTitle')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('header')->nullable();
             $table->text('summary')->nullable();
@@ -36,17 +39,14 @@ return new class extends Migration
             $table->text('evaluate_topics')->nullable();
             $table->text('evaluate_instructors')->nullable();
             $table->text('fb_testimonial')->nullable();
-            $table->integer('author_id')->nullable();
-            $table->integer('creator_id')->nullable();
             $table->string('view_tpl')->nullable();
             $table->integer('view_counter')->nullable();
             $table->string('published_at')->nullable();
-            $table->string('created_at', 500)->nullable();
-            $table->string('updated_at', 500)->nullable();
             $table->string('launch_date')->nullable();
             $table->text('xml_title')->nullable();
             $table->text('xml_description')->nullable();
             $table->text('xml_short_description')->nullable();
+            $table->timestamps();
         });
     }
 

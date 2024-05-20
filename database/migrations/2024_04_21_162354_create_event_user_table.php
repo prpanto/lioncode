@@ -14,16 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('event_user', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('event_id')->nullable()->comment('unsigned');
-            $table->integer('user_id')->nullable()->comment('unsigned');
-            $table->boolean('paid')->nullable();
-            $table->string('expiration')->nullable();
-            $table->integer('payment_method')->default(0);
-            $table->text('comment')->nullable();
-
+            $table->id();
+            
             $table->foreignId('event_id')->constrained();
             $table->foreignId('user_id')->constrained();
+
+            $table->boolean('paid')->nullable();
+            $table->string('expiration')->nullable();
+            $table->boolean('payment_method')->default(false);
+            $table->text('comment')->nullable();
+            $table->timestamps();
         });
     }
 

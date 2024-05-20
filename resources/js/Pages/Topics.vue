@@ -2,7 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 
-defineProps({ topics: Object });
+defineProps({ topics: Object | Array });
 </script>
 
 <template>

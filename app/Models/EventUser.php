@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class EventUser extends Pivot
 {
-    protected $table = 'event_user';
-
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);
